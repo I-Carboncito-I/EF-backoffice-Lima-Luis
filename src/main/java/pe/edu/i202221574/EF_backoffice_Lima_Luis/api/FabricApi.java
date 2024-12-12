@@ -2,6 +2,7 @@ package pe.edu.i202221574.EF_backoffice_Lima_Luis.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.i202221574.EF_backoffice_Lima_Luis.dto.CarCreateDto;
 import pe.edu.i202221574.EF_backoffice_Lima_Luis.dto.CarDetailDto;
 import pe.edu.i202221574.EF_backoffice_Lima_Luis.dto.CarDto;
 import pe.edu.i202221574.EF_backoffice_Lima_Luis.response.*;
@@ -62,16 +63,19 @@ public class FabricApi {
         }
     }
 
+
     @PostMapping("/create")
-    public CreateCarResponse createCar(@RequestBody CarDto carDto) {
+    public CreateCarResponse createCar(@RequestBody CarCreateDto carCreateDto) {
         try {
-            fabricService.createCar(carDto);
+            fabricService.createCar(carCreateDto);
             return new CreateCarResponse("01", "Coche creado con éxito");
         } catch (Exception e) {
             e.printStackTrace();
             return new CreateCarResponse("99", "Servicio no encontrado");
         }
     }
+
+
 
     @PostMapping("/update")
     public UpdateCarResponse updateCar(@RequestBody CarDto carDto) {

@@ -2,6 +2,7 @@ package pe.edu.i202221574.EF_backoffice_Lima_Luis.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.edu.i202221574.EF_backoffice_Lima_Luis.dto.CarCreateDto;
 import pe.edu.i202221574.EF_backoffice_Lima_Luis.dto.CarDetailDto;
 import pe.edu.i202221574.EF_backoffice_Lima_Luis.dto.CarDto;
 import pe.edu.i202221574.EF_backoffice_Lima_Luis.entity.Car;
@@ -69,15 +70,30 @@ public class FabricServiceImpl implements FabricService {
     }
 
     @Override
-    public void createCar(CarDto carDto) {
+    public void createCar(CarCreateDto carCreateDto) {
         Car car = new Car();
-        car.setMake(carDto.make());
-        car.setModel(carDto.model());
-        car.setYear(carDto.year());
-        car.setLicensePlate(carDto.licensePlate());
-        car.setColor(carDto.color());
+
+        car.setMake(carCreateDto.make());
+        car.setModel(carCreateDto.model());
+        car.setYear(carCreateDto.year());
+        car.setVin(carCreateDto.vin());
+        car.setLicensePlate(carCreateDto.licensePlate());
+        car.setOwnerName(carCreateDto.ownerName());
+        car.setOwnerContact(carCreateDto.ownerContact());
+        car.setPurchaseDate(carCreateDto.purchaseDate());
+        car.setMileage(carCreateDto.mileage());
+        car.setEngineType(carCreateDto.engineType());
+        car.setColor(carCreateDto.color());
+        car.setInsuranceCompany(carCreateDto.insuranceCompany());
+        car.setInsurancePolicyNumber(carCreateDto.insurancePolicyNumber());
+        car.setRegistrationExpirationDate(carCreateDto.registrationExpirationDate());
+        car.setServiceDueDate(carCreateDto.serviceDueDate());
+
         carRepository.save(car);
     }
+
+
+
 
     @Override
     public boolean updateCar(CarDto carDto) {

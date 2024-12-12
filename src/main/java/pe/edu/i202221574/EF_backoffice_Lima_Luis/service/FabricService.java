@@ -1,5 +1,6 @@
 package pe.edu.i202221574.EF_backoffice_Lima_Luis.service;
 
+import pe.edu.i202221574.EF_backoffice_Lima_Luis.dto.CarCreateDto;
 import pe.edu.i202221574.EF_backoffice_Lima_Luis.dto.CarDetailDto;
 import pe.edu.i202221574.EF_backoffice_Lima_Luis.dto.CarDto;
 
@@ -14,7 +15,7 @@ public interface FabricService {
 
     Optional<CarDetailDto> getCarDetailById(Integer id);
 
-    void createCar(CarDto carDto);
+    void createCar(CarCreateDto carCreateDto);
 
     boolean updateCar(CarDto carDto);
 
